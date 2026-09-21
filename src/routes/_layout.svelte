@@ -3,6 +3,11 @@
   import config from "../data/config.json";
   import snarkdown from "snarkdown";
   export let segment;
+  const generatedText = (config as any).generatedAt
+    ? new Date((config as any).generatedAt).toLocaleString('zh-CN', {
+        year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false,
+      })
+    : '';
 
   const statusWebsite = config["status-website"] || {};
   const faviconBaseUrl = (statusWebsite.baseUrl || "").replace(/\/$/, "");
@@ -46,6 +51,7 @@
     />
   {/if}
   <link rel="stylesheet" href={`${config.path}/global.css`} />
+  <link rel="stylesheet" href="custom.css" />
   <link
     rel="icon"
     type="image/svg"
@@ -88,6 +94,7 @@
 {/if}
 
 <Nav {segment} />
+<p class="qf-generated">{generatedText}</p>
 
 <main class="container">
   <slot />
