@@ -1,0 +1,72 @@
+/* QuickFind 状态站自定义样式（与官网设计系统一致）
+   注入方式见 README：fork 的 status-page 模板在 _document.tsx 的 <Head> 中
+   <link rel="stylesheet" href="/custom.css" />，并将本文件放到模板 static/ 目录。 */
+
+:root {
+  --qf-brand: #3b82f6;
+  --qf-teal: #2dd4bf;
+  --qf-ink: #1f2937;
+  --qf-muted: #6b7280;
+  --qf-card: #ffffff;
+  --qf-line: #e5e7eb;
+  --qf-bg: #f8fafc;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --qf-ink: #e8edf6;
+    --qf-muted: #9aa7bd;
+    --qf-card: #141b28;
+    --qf-line: #243044;
+    --qf-bg: #0b0e14;
+  }
+}
+
+body {
+  background: var(--qf-bg) !important;
+  color: var(--qf-ink) !important;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+header, .container, main, footer { color: var(--qf-ink); }
+a { color: var(--qf-brand); }
+a:hover { color: var(--qf-teal); }
+
+/* 顶部品牌栏 */
+header nav, .navbar {
+  border-bottom: 1px solid var(--qf-line) !important;
+}
+
+/* 卡片：与官网圆角/留白一致 */
+.card, .shadow, [class*="card"] {
+  background: var(--qf-card) !important;
+  border: 1px solid var(--qf-line) !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+}
+
+/* 正常/故障状态点 */
+.text-green, .bg-green { color: var(--qf-teal) !important; }
+
+/* 站点分组标题（按名称前缀识别） */
+.site-group-label {
+  display: block;
+  margin: 22px 0 10px;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--qf-teal);
+}
+
+/* intro 区 */
+.intro h1, h1 { letter-spacing: -0.01em; }
+.intro p { color: var(--qf-muted); }
+
+/* 隐藏 Upptime 品牌水印 */
+.upperLinks a[href*="upptime"] { display: none !important; }
+
+/* 最后更新时间 */
+#qf-last-updated {
+  font-size: 12.5px;
+  color: var(--qf-muted);
+  margin-top: 8px;
+}
