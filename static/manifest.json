@@ -1,8 +1,9 @@
 {
-  "background_color": "#ffffff",
-  "theme_color": "#333333",
-  "name": "Upptime",
-  "short_name": "Upptime",
+  "background_color": "#f6f8fc",
+  "theme_color": "#2563eb",
+  "name": "QuickFind 系统状态",
+  "short_name": "QuickFind 状态",
+  "description": "QuickFind 官网、Releases 分发站与云端服务的实时运行状态",
   "display": "minimal-ui",
   "start_url": "/",
   "icons": [
