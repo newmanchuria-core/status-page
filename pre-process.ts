@@ -51,6 +51,7 @@ export const preProcess = async () => {
   config.path = `https://${config.owner}.github.io/${config.repo}`;
   if (config["status-website"]?.cname) config.path = `https://${config["status-website"].cname}${config["status-website"]?.baseUrl ?? ""}`;
   config.i18n = { ...i18n, ...config.i18n };
+  (config as any).generatedAt = new Date().toISOString();
   await writeTemplateLanguage(config.i18n.locale);
   await ensureDir(join(".", "src", "data"));
   await writeJson(join(".", "src", "data", "config.json"), config);
